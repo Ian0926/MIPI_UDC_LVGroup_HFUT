@@ -8,7 +8,7 @@ from torchvision.utils import save_image, make_grid
 
 from utils import *
 from options import TestOptions
-from models import UNet, UNet64, UNetLong
+from models import UNet
 from datasets import PairedImgDataset
 
 print('---------------------------------------- step 1/4 : parameters preparing... ----------------------------------------')
@@ -28,10 +28,7 @@ print('successfully loading validating pairs. =====> qty:{}'.format(len(test_dat
 
 print('---------------------------------------- step 3/4 : model defining... ----------------------------------------------')
 model = UNet().cuda()
-# model = UNet64().cuda()
-# model = UNetLong().cuda()
 
-# model = nn.DataParallel(model)
 model.load_state_dict(torch.load(opt.model_path))
 print('successfully loading pretrained model.')
 
