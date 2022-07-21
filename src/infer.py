@@ -8,7 +8,7 @@ from torchvision.utils import save_image, make_grid
 
 from utils import *
 from options import TestOptions
-from models import UNet, UNet64, UNetLong
+from models import UNet
 from datasets import SingleImgDataset
 
 print('---------------------------------------- step 1/4 : parameters preparing... ----------------------------------------')
@@ -27,9 +27,6 @@ print('successfully loading inferring pairs. =====> qty:{}'.format(len(infer_dat
 
 print('---------------------------------------- step 3/4 : model defining... ----------------------------------------------')
 model = UNet().cuda()
-# model = UNet64().cuda()
-# model = UNetLong().cuda()
-# model = nn.DataParallel(model)
 print_para_num(model)
 
 model.load_state_dict(torch.load(opt.model_path))
