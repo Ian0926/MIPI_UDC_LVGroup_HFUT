@@ -11,9 +11,6 @@ from torchvision.utils import save_image, make_grid
 from utils import *
 from options import TrainOptions
 from models import UNet
-# from models import UNet64
-# from nafnet import NAFNet
-# from unet_nafblock import UNet_NAFBlock
 from losses import LossCont, LossFreqReco
 from datasets import PairedImgDataset
 
@@ -39,9 +36,6 @@ print('successfully loading validating pairs. =====> qty:{} bs:{}'.format(len(va
 
 print('---------------------------------------- step 3/5 : model defining... ----------------------------------------------')
 model = UNet().cuda()
-# model = UNet64().cuda()
-# model = NAFNet().cuda()
-# model = UNet_NAFBlock().cuda()
 if opt.data_parallel:
     model = nn.DataParallel(model)
 print_para_num(model)
@@ -56,8 +50,6 @@ criterion_fft = LossFreqReco()
 
 optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr, betas=(0.5, 0.999))
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [500,1000,1500,2000,2500,3000,3500,4000], 0.5)
-# scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [600,1100,1500,1800,2000,2100], 0.5)
-# scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [300,600,900,1200], 0.3)
 
 print('---------------------------------------- step 5/5 : training... ----------------------------------------------------')
 def main():
