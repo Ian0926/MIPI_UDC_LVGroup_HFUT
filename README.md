@@ -2,6 +2,8 @@
 
 > This repository is the official [MIPI Challenge 2022](http://mipi-challenge.org/#) implementation of Team LVGroup_HFUT in [Image Restoration for Under-display Camera](https://codalab.lisn.upsaclay.fr/competitions/4874).
 
+> The restoration results of the tesing images can be downloaded from [here](https://pan.baidu.com/s/10Te4V1q4wRXi3x_MzvIHpA?pwd=0ino).
+
 ## Usage
 
 ### Single image inference
@@ -23,13 +25,13 @@
 
 ### Dataset format
 
-The format of the dataset should meet the following code in datasets.py:
+> The format of the dataset should meet the following code in datasets.py:
 
 `self.img_paths = sorted(glob.glob(data_source + '/' + mode + '/input' + '/*.*'))`
 
 `self.gt_paths = sorted(glob.glob(data_source + '/'  + mode + '/GT' + '/*.*'))`
 
-or
+> or
 
 `self.img_paths = sorted(glob.glob(data_source + '/' + 'test' + '/input' + '/*.*'))`
 
